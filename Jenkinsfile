@@ -25,7 +25,30 @@ pipeline {
                 checkout scm
             }
         }
+   
+         stage('Copy Deploy Files') {
 
+            steps {
+
+                sh '''
+                    echo "======================================"
+                    echo " Docker Compose / Nginx 파일 복사"
+                    echo "======================================"
+
+                    mkdir -p ${APP_DIR}
+
+                    cp docker-compose.yml ${APP_DIR}/docker-compose.yml
+
+                    cp nginx.conf ${APP_DIR}/nginx.conf
+
+                    echo "======================================"
+                    echo " 배포 파일 확인"
+                    echo "======================================"
+
+                    ls -al ${APP_DIR}
+                '''
+            }
+        }
 
         // =====================================================
         // 2. Gradle Build
