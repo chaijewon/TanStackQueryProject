@@ -4,7 +4,7 @@ pipeline {
 
     environment {
         IMAGE_NAME = "react-app:latest"
-        APP_DIR = "~/app"
+        APP_DIR = "/home/sist/app"
     }
 
     stages {
@@ -61,12 +61,17 @@ pipeline {
         stage('Rolling Deploy') {
             steps {
                 sh '''
-                    cd ${APP_DIR}
+                    cd /home/sist/app
+                    
+                    echo "====== 현재위치 ======"
+                    pwd 
+                    
+                    echo "====== 파일 확인 ====="
+                    ls -al
 
                     echo "===== Docker Compose 시작 ====="
 
-                    docker compose up -d \
-                        --scale app=2
+                    docker compose up -d --scale app=2
 
                     echo "===== 컨테이너 확인 ====="
 
