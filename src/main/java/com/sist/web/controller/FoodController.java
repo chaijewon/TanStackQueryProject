@@ -5,13 +5,26 @@ import java.util.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.sist.web.service.FoodService;
 import com.sist.web.vo.FoodVO;
 
 import lombok.RequiredArgsConstructor;
-
+/*
+ *   1. Dockerfile 
+ *        Spring-Boot 
+ *            |
+ *           Jar 
+ *            |
+ *          Docker image 
+ *            |
+ *          Container : 한개를 실행하는 프로그램 (환경 설정)
+ *   2. docker-compose 
+ *   3. nginx.conf 
+ *   4. Jenkinsfile
+ */
 @Controller
 @RequiredArgsConstructor
 public class FoodController {
@@ -21,7 +34,7 @@ public class FoodController {
 	   model.addAttribute("main_html", "main/home");
 	   return "main/main";
    }
-   @GetMapping("/food/list")
+   @RequestMapping("/food/list")
    public String food_list(
 	   @RequestParam(value="search",required = false) String search,
 	   @RequestParam(value ="page",required = false) String page,

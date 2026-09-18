@@ -6,7 +6,7 @@
      SELECT no,poster,name,score,theme,type
      FROM food
      <if test="search!=null and search!=''">
-       WHERE address LIKE CONCAT('%',#{search},'%')
+       WHERE address LIKE '%'||#{search}||'%'
      </if>
      ORDER BY no ASC
      OFFSET #{start} ROWS FETCH NEXT 12 ROWS ONLY
@@ -20,7 +20,7 @@
      SELECT COUNT(*)
      FROM food
      <if test="search!=null and search!=''">
-       WHERE address LIKE CONCAT('%',#{search},'%')
+       WHERE address LIKE '%'||#{search}||'%'
      </if>
   </select>
 </mapper>
