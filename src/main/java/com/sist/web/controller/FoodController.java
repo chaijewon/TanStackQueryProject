@@ -24,6 +24,8 @@ import lombok.RequiredArgsConstructor;
  *   2. docker-compose 
  *   3. nginx.conf 
  *   4. Jenkinsfile
+ *   
+ *   ==> 동작 확인 여부 
  */
 @Controller
 @RequiredArgsConstructor
