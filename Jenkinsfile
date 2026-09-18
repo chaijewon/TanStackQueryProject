@@ -177,7 +177,7 @@ pipeline {
 
                         cat > ${APP_DIR}/.env <<EOF
 SPRING_PROFILES_ACTIVE=prod
-LOCAL_DB_URL=${DB_URL}
+DB_URL=${DB_URL}
 DB_USERNAME=${DB_USERNAME}
 DB_PASSWORD=${DB_PASSWORD}
 EOF
@@ -189,7 +189,6 @@ EOF
                 }
             }
         }
-
 
         // =====================================================
         // 6. Docker Compose 배포
