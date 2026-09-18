@@ -182,7 +182,7 @@ DB_USERNAME=${DB_USERNAME}
 DB_PASSWORD=${DB_PASSWORD}
 EOF
 
-                        chmod 600 ${APP_DIR}/.env
+                        chmod 644 ${APP_DIR}/.env
 
                         echo ".env 생성 완료"
                     '''
