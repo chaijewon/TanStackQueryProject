@@ -177,7 +177,7 @@ pipeline {
 
                         cat > ${APP_DIR}/.env <<EOF
 SPRING_PROFILES_ACTIVE=prod
-DB_URL=${DB_URL}
+LOCAL_DB_URL=${DB_URL}
 DB_USERNAME=${DB_USERNAME}
 DB_PASSWORD=${DB_PASSWORD}
 EOF
