@@ -25,6 +25,7 @@ import lombok.Data;
 	                                       NUMBER
 	 1. 메소드 규칙 
 	 2. JOIN 처리 
+	 
 	 3. SQL작성  @Query
 	 -----------------
 	 4. JPQL => 객체 단위 처리 
