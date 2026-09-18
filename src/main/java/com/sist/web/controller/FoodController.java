@@ -14,7 +14,7 @@ import lombok.RequiredArgsConstructor;
 
 @Controller
 @RequiredArgsConstructor
-public class RouterController {
+public class FoodController {
    private final FoodService fService;
    @GetMapping("/main")
    public String main_page(Model model) {
@@ -36,8 +36,20 @@ public class RouterController {
 	   List<FoodVO> list=fService.foodListData(map);
 	   int count=fService.foodListTotalPage(search);
 	   // 페이지 나누기 
+	   int totalpage=(int)(Math.ceil(count/12.0));
+	   final int BLOCK=10;
+	   int startPage=((curpage-1)/BLOCK*BLOCK)+1;
+	   int endPage=((curpage-1)/BLOCK*BLOCK)+BLOCK;
+	   if(endPage>totalpage)
+		   endPage=totalpage;
 	   
-	   
+	   // HTML로 전송
+	   model.addAttribute("list", list);
+	   model.addAttribute("curpage", curpage);
+	   model.addAttribute("totalpage", totalpage);
+	   model.addAttribute("count", count);
+	   model.addAttribute("startPage", startPage);
+	   model.addAttribute("endPage", endPage);
 	   model.addAttribute("main_html", "food/list");
 	   return "main/main";
    }

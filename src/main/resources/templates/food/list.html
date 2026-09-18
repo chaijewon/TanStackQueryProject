@@ -49,47 +49,12 @@
 
     </section>
 
-
-    <!-- ================= FILTER ================= -->
-    <section class="filter-area">
-
-        <button class="filter active">
-            전체
-        </button>
-
-        <button class="filter">
-            한식
-        </button>
-
-        <button class="filter">
-            일식
-        </button>
-
-        <button class="filter">
-            중식
-        </button>
-
-        <button class="filter">
-            양식
-        </button>
-
-        <button class="filter">
-            고기
-        </button>
-
-        <button class="filter">
-            카페
-        </button>
-
-    </section>
-
-
     <!-- ================= LIST HEADER ================= -->
     <section class="list-header">
 
         <div>
             <strong>맛집 목록</strong>
-            <span>총 48개의 맛집</span>
+            <span>총 [[${count}]]개의 맛집</span>
         </div>
 
         <select>
@@ -107,29 +72,28 @@
 
 
         <!-- 01 -->
-        <article class="restaurant-card">
+        <article class="restaurant-card" th:each="vo:${list}">
 
             <div class="restaurant-image sushi">
-                🍣
+                <img th:src="${vo.poster}">
             </div>
 
             <div class="restaurant-info">
 
                 <div class="rating">
-                    ⭐ 4.9
+                    ⭐ [[${vo.score}]]
                 </div>
 
                 <h3>
-                    오늘의 스시
+                    [[${vo.name}]]
                 </h3>
 
                 <p>
-                    강남 · 일식 · 초밥
+                    [[${vo.type}]]
                 </p>
 
                 <div class="tags">
-                    <span>데이트</span>
-                    <span>인기맛집</span>
+                    <span>[[${vo.theme}]]</span>
                 </div>
 
                 <button>
@@ -137,394 +101,7 @@
                 </button>
 
             </div>
-
         </article>
-
-
-        <!-- 02 -->
-        <article class="restaurant-card">
-
-            <div class="restaurant-image meat">
-                🥩
-            </div>
-
-            <div class="restaurant-info">
-
-                <div class="rating">
-                    ⭐ 4.8
-                </div>
-
-                <h3>
-                    서울 고기집
-                </h3>
-
-                <p>
-                    강남 · 한우 · 고기
-                </p>
-
-                <div class="tags">
-                    <span>회식</span>
-                    <span>한우</span>
-                </div>
-
-                <button>
-                    자세히 보기 →
-                </button>
-
-            </div>
-
-        </article>
-
-
-        <!-- 03 -->
-        <article class="restaurant-card">
-
-            <div class="restaurant-image pasta">
-                🍝
-            </div>
-
-            <div class="restaurant-info">
-
-                <div class="rating">
-                    ⭐ 4.9
-                </div>
-
-                <h3>
-                    AI 추천 파스타
-                </h3>
-
-                <p>
-                    홍대 · 이탈리안 · 파스타
-                </p>
-
-                <div class="tags">
-                    <span>데이트</span>
-                    <span>분위기</span>
-                </div>
-
-                <button>
-                    자세히 보기 →
-                </button>
-
-            </div>
-
-        </article>
-
-
-        <!-- 04 -->
-        <article class="restaurant-card">
-
-            <div class="restaurant-image korean">
-                🍚
-            </div>
-
-            <div class="restaurant-info">
-
-                <div class="rating">
-                    ⭐ 4.7
-                </div>
-
-                <h3>
-                    서울 한정식
-                </h3>
-
-                <p>
-                    종로 · 한식 · 정식
-                </p>
-
-                <div class="tags">
-                    <span>가족모임</span>
-                    <span>한식</span>
-                </div>
-
-                <button>
-                    자세히 보기 →
-                </button>
-
-            </div>
-
-        </article>
-
-
-        <!-- 05 -->
-        <article class="restaurant-card">
-
-            <div class="restaurant-image chicken">
-                🍗
-            </div>
-
-            <div class="restaurant-info">
-
-                <div class="rating">
-                    ⭐ 4.6
-                </div>
-
-                <h3>
-                    오늘 치킨
-                </h3>
-
-                <p>
-                    신촌 · 치킨 · 야식
-                </p>
-
-                <div class="tags">
-                    <span>야식</span>
-                    <span>친구</span>
-                </div>
-
-                <button>
-                    자세히 보기 →
-                </button>
-
-            </div>
-
-        </article>
-
-
-        <!-- 06 -->
-        <article class="restaurant-card">
-
-            <div class="restaurant-image chinese">
-                🥟
-            </div>
-
-            <div class="restaurant-info">
-
-                <div class="rating">
-                    ⭐ 4.7
-                </div>
-
-                <h3>
-                    홍대 만두집
-                </h3>
-
-                <p>
-                    홍대 · 중식 · 만두
-                </p>
-
-                <div class="tags">
-                    <span>맛집</span>
-                    <span>중식</span>
-                </div>
-
-                <button>
-                    자세히 보기 →
-                </button>
-
-            </div>
-
-        </article>
-
-
-        <!-- 07 -->
-        <article class="restaurant-card">
-
-            <div class="restaurant-image cafe">
-                ☕
-            </div>
-
-            <div class="restaurant-info">
-
-                <div class="rating">
-                    ⭐ 4.8
-                </div>
-
-                <h3>
-                    감성 카페
-                </h3>
-
-                <p>
-                    성수 · 카페 · 디저트
-                </p>
-
-                <div class="tags">
-                    <span>카페</span>
-                    <span>디저트</span>
-                </div>
-
-                <button>
-                    자세히 보기 →
-                </button>
-
-            </div>
-
-        </article>
-
-
-        <!-- 08 -->
-        <article class="restaurant-card">
-
-            <div class="restaurant-image ramen">
-                🍜
-            </div>
-
-            <div class="restaurant-info">
-
-                <div class="rating">
-                    ⭐ 4.6
-                </div>
-
-                <h3>
-                    일본 라멘집
-                </h3>
-
-                <p>
-                    건대 · 일식 · 라멘
-                </p>
-
-                <div class="tags">
-                    <span>혼밥</span>
-                    <span>라멘</span>
-                </div>
-
-                <button>
-                    자세히 보기 →
-                </button>
-
-            </div>
-
-        </article>
-
-
-        <!-- 09 -->
-        <article class="restaurant-card">
-
-            <div class="restaurant-image pizza">
-                🍕
-            </div>
-
-            <div class="restaurant-info">
-
-                <div class="rating">
-                    ⭐ 4.8
-                </div>
-
-                <h3>
-                    이탈리아 피자
-                </h3>
-
-                <p>
-                    이태원 · 양식 · 피자
-                </p>
-
-                <div class="tags">
-                    <span>데이트</span>
-                    <span>피자</span>
-                </div>
-
-                <button>
-                    자세히 보기 →
-                </button>
-
-            </div>
-
-        </article>
-
-
-        <!-- 10 -->
-        <article class="restaurant-card">
-
-            <div class="restaurant-image bbq">
-                🔥
-            </div>
-
-            <div class="restaurant-info">
-
-                <div class="rating">
-                    ⭐ 4.7
-                </div>
-
-                <h3>
-                    숯불 돼지고기
-                </h3>
-
-                <p>
-                    잠실 · 고기 · 삼겹살
-                </p>
-
-                <div class="tags">
-                    <span>회식</span>
-                    <span>삼겹살</span>
-                </div>
-
-                <button>
-                    자세히 보기 →
-                </button>
-
-            </div>
-
-        </article>
-
-
-        <!-- 11 -->
-        <article class="restaurant-card">
-
-            <div class="restaurant-image rice">
-                🍱
-            </div>
-
-            <div class="restaurant-info">
-
-                <div class="rating">
-                    ⭐ 4.8
-                </div>
-
-                <h3>
-                    오늘의 도시락
-                </h3>
-
-                <p>
-                    마포 · 한식 · 도시락
-                </p>
-
-                <div class="tags">
-                    <span>혼밥</span>
-                    <span>가성비</span>
-                </div>
-
-                <button>
-                    자세히 보기 →
-                </button>
-
-            </div>
-
-        </article>
-
-
-        <!-- 12 -->
-        <article class="restaurant-card">
-
-            <div class="restaurant-image dessert">
-                🍰
-            </div>
-
-            <div class="restaurant-info">
-
-                <div class="rating">
-                    ⭐ 4.9
-                </div>
-
-                <h3>
-                    디저트 카페
-                </h3>
-
-                <p>
-                    연남 · 카페 · 케이크
-                </p>
-
-                <div class="tags">
-                    <span>디저트</span>
-                    <span>데이트</span>
-                </div>
-
-                <button>
-                    자세히 보기 →
-                </button>
-
-            </div>
-
-        </article>
-
     </section>
 
 
