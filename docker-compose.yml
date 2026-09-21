@@ -78,3 +78,10 @@ services:
     # app 컨테이너 실행 후 nginx 실행
     depends_on:
       - app
+    networks:
+      - app-network
+
+
+networks:
+    app-network:
+      driver: bridge
