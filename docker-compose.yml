@@ -52,6 +52,11 @@ services:
       # 최초 실행 후 30초 동안 대기
       start_period: 30s
 
+    # ★ 중요
+    # app도 nginx와 같은 Docker 네트워크 사용
+    networks:
+      - app-network
+
 
   # =====================================================
   # Nginx
@@ -75,13 +80,19 @@ services:
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf:ro
 
-    # app 컨테이너 실행 후 nginx 실행
+    # app 실행 후 nginx 실행
     depends_on:
       - app
+
+    # app과 동일한 네트워크
     networks:
       - app-network
 
 
+# =====================================================
+# Docker Network
+# =====================================================
 networks:
-    app-network:
-      driver: bridge
+
+  app-network:
+    driver: bridge
